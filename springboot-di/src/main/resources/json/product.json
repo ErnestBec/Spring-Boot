@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "Mesa",
+        "price": 292
+    },
+    {
+        "id": 2,
+        "name": "Cargador",
+        "price": 6250
+    },
+    {
+        "id": 3,
+        "name": "Bastería",
+        "price": 5875
+    },
+    {
+        "id": 4,
+        "name": "Cables",
+        "price": 10625
+    }
+]
