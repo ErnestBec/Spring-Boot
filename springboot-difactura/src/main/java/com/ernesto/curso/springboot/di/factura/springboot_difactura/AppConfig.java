@@ -1,7 +1,7 @@
 package com.ernesto.curso.springboot.di.factura.springboot_difactura;
 
-import java.util.Arrays;
 import java.util.List;
+import java.util.Arrays;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

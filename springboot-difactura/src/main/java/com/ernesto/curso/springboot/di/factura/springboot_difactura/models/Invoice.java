@@ -2,15 +2,22 @@ package com.ernesto.curso.springboot.di.factura.springboot_difactura.models;
 
 import java.util.List;
 
+import jakarta.annotation.PreDestroy;
+import jakarta.annotation.PostConstruct;
+
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
-import jakarta.annotation.PostConstruct;
-import jakarta.annotation.PreDestroy;
 
 @Component
+@RequestScope //sube el scope a un nivel mas alto
+@JsonIgnoreProperties({"advisors","targetSource"}) // como ya no tiene propiedades get y es de nivel superior necesita propiedades para serializar a JSON; atributos residuales
 public class Invoice {
     @Autowired
     private Client client;
@@ -33,8 +40,7 @@ public class Invoice {
     @PreDestroy 
     public void destroy(){
         //Se ejecuta antes de finaliza el uso del componente o destruirse (singleton por defecto) 
-        System.out.println("Destruyendo el componente o bean factura");
-    }
+     }
 
     public Client getClient() {
         return client;
