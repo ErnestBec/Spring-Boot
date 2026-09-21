@@ -19,8 +19,7 @@ public class FooController{
         return Collections.singletonMap("message", "handler foo del controlador");
     }
 
-    @GetMapping("/bar")
-    public Map<String, String> bar() {
+    @GetMapping("/bar")    public Map<String, String> bar() {
 
         return Collections.singletonMap("message", "handler bar del controlador");
     }

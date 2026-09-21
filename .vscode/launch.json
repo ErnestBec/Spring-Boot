@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringbootInterceptorApplication<springboot-interceptor>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.ernesto.springboot.app.interceptor.springboot_interceptor.SpringbootInterceptorApplication",
+            "projectName": "springboot-interceptor",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringbootDifacturaApplication<springboot-difactura>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.ernesto.curso.springboot.di.factura.springboot_difactura.SpringbootDifacturaApplication",
+            "projectName": "springboot-difactura",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
