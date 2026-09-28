@@ -19,6 +19,16 @@
             "projectName": "springboot-difactura",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringbootAopApplication<springboot-aop>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.ernesto.curso.springboot.app.aop.springboot_aop.SpringbootAopApplication",
+            "projectName": "springboot-aop",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
