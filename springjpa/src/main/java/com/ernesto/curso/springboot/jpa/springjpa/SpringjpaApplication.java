@@ -26,7 +26,80 @@ public class SpringjpaApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
-		delete2();
+		fullNameBetween();
+	}
+	@Transactional (readOnly = true)
+	public void fullNameBetween(){
+				System.out.println("========= Lista de nombres en between =========");
+		List<String> listFullNames = repository.findListFullNameBetween();
+		listFullNames.forEach(fullName -> System.out.println(fullName));
+	}
+
+	@Transactional(readOnly = true)
+	public void fullNamePersonalized(){
+
+		System.out.println("========= Lista de nombres en minusaculas =========");
+		List<String> listFullNames = repository.findListFullNameLower();
+		listFullNames.forEach(fullName -> System.out.println(fullName));
+
+		System.out.println("========= Lista de nombres en mayusculas =========");
+		listFullNames = repository.findListFullNameUpper();
+		listFullNames.forEach(fullName -> System.out.println(fullName));
+
+		System.out.println("========= Lista de nombres con coincidencia =========");
+		listFullNames = repository.findListFullNameLike();
+		listFullNames.forEach(fullName -> System.out.println(fullName));
+	}
+
+	@Transactional(readOnly = true) 
+	public void personalizedQueriesDistinct (){
+		System.out.println("========== Lsta de nombres ==========");
+		List<String> names = repository.findAllNames();
+
+		names.forEach(name -> System.out.println(name));
+
+		System.out.println("========== Lsta de nombres unicos ==========");
+		names = repository.findAllNamesDistinct();
+		names.forEach(name -> System.out.println(name));
+
+		System.out.println("========== Lenguajes de programación unicos ==========");
+		List<String> languajes = repository.findAllLanguageDistinct();
+		languajes.forEach(languages -> System.out.println(languages));
+
+		System.out.println("========== Cantidad de Lenguajes de programación unicos ==========");
+		Long count = repository.findAllLanguageCount();
+		System.out.println("Existen " + count + " lenguajes de programación.");
+
+	}
+
+	@Transactional(readOnly = true)
+	public void personalizedQueries2(){
+		System.out.println("======= consulta por objeto persona y lenguaje de programación =======");
+
+		List<Object[]> personsRegs = repository.findAllMixPerson();
+		personsRegs.forEach(person -> System.out.println("Language: " + person[1] + " Person: " + person[0]));
+
+		System.out.println("======= Consulta que puebla y devuelve objeto entity de una onstancia personalizada. =======");
+		List<Person> persons = repository.findAllObjectPeronPersonalized();
+		persons.forEach(person -> System.out.println("Person: " + person));
+
+
+		System.out.println("======= Consulta que puebla y devuelve objeto entity de un DTO. =======");
+		List<PersonDTO> personsDto = repository.findAllPersonDTO();
+		personsDto.forEach(person -> System.out.println("Person: " + person));
+	}
+
+
+	@Transactional(readOnly = true)
+	public void personalizedQueries(){
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Ingresa el id: ");
+		Long id = scanner.nextLong();
+
+		String fullName = repository.getFullNameById(id);
+
+		System.out.println("Usuario: " + fullName );
+		scanner.close();
 	}
 
 	@Transactional 
